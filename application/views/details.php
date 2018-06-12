@@ -4,6 +4,7 @@ foreach ($value_data as $value) {
 	# code...
 
 ?>
+<form method="post" action="http://localhost/crud_codeigniter/index.php/home/modify">
 <input type="text" name="id" value="<?php echo $value->id;?>"" readonly="readonly">
 <input type="text" name="fname" value="<?php echo $value->firstname; ?>">
 <input type="text" name="lname" value="<?php echo $value->lastname; ?>">
@@ -12,5 +13,6 @@ foreach ($value_data as $value) {
 <input type="text" name="pwd" value="<?php echo $value->pass_word; ?>">
 <input type="submit" name="update" value="Update">
 <input type="submit" name="delete" value="Delete">
+</form>
 <?php
 }

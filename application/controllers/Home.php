@@ -37,15 +37,34 @@ class Home extends CI_Controller
 	}
 	function modify()
 	{
-		$data = array(
+
+		
+		if(isset($_POST['update']))
+		{
+			$data = array(
         'firstname' => $_POST['fname'],
         'lastname' => $_POST['lname'],
         'username' => $_POST['uname'],
         'email' => $_POST['mail'],
         'pass_word' => $_POST['pwd']
 );
+// 			$this->db->where('id', $_POST['id']);
+// 			$this->db->update('MyGuests', $data);
+// 			redirect("home/readdata", "refresh");
+			$this->load->model('models');
+			$this->models->update($data, $_POST['id']);
+		}
+		if(isset($_POST['delete']))
+		{
+			$this->load->model('models');
+			$this->models->delete($_POST['id']);
+			$this->db->where('id', $_POST['id']);
+			$this->db->delete('mytable');
+			redirect("home/readdata", "refresh");
+		}
 
-		$this->load->model('register');
-		$this->register->create($data);
+
+		// $this->load->model('register');
+		// $this->register->create($data);
 	}
 }
