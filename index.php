@@ -47,7 +47,7 @@
  *
  * This can be set to anything, but default usage is:
  *
- *     development
+ *     developments
  *     testing
  *     production
  *
